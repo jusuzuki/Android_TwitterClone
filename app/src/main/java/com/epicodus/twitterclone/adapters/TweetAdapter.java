@@ -47,9 +47,9 @@ public class TweetAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.tweet_list_item, null);
             holder = new ViewHolder();
-            holder.nameLabel = (TextView) convertView.findViewById(R.id.nameLabel);
-            holder.dateLabel = (TextView)convertView.findViewById(R.id.dateLabel);
-            holder.tweetLabel = (TextView)convertView.findViewById(R.id.tweetLabel);
+            holder.nameLabel = (TextView) convertView.findViewById(R.id.nameText);
+            holder.dateLabel = (TextView)convertView.findViewById(R.id.dateText);
+            holder.tweetLabel = (TextView)convertView.findViewById(R.id.tweetText);
 
             convertView.setTag(holder);
         } else {

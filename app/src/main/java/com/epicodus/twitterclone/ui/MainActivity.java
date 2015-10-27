@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.epicodus.twitterclone.R;
@@ -68,8 +69,8 @@ public class MainActivity extends ListActivity {
             }
         });
 
-
     }
+
 
     private boolean isRegistered(){
         String username = mPreferences.getString("username", null);
@@ -92,5 +93,13 @@ public class MainActivity extends ListActivity {
         Toast.makeText(this, "Welcome " + mUser.getName(), Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    protected void  onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l,v, position, id);
+        String singleTweet = mTweets.get(position).toString();
+        Intent intent = new Intent(this, TweetActivity.class);
+        intent.putExtra("tweetText", singleTweet);
+        startActivity(intent);
+    }
 
 }
