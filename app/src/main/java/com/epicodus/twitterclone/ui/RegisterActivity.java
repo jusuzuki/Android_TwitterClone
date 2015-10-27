@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        mNameEdit = (EditText) findViewById(R.id.singleNameText);
+        mNameEdit = (EditText) findViewById(R.id.replyNameText);
         mLoginButton = (Button)findViewById(R.id.registerButton);
         mPreferences = getApplicationContext().getSharedPreferences("twitter", Context.MODE_PRIVATE);
 

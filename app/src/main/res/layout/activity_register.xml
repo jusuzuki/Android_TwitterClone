@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/singleNameText"
+        android:id="@+id/replyNameText"
         android:layout_below="@+id/registerLabel"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/registerButton"
-        android:layout_below="@+id/singleNameText"
+        android:layout_below="@+id/replyNameText"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"/>
 

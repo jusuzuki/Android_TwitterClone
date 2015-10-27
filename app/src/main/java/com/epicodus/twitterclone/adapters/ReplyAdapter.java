@@ -8,31 +8,33 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.epicodus.twitterclone.R;
-import com.epicodus.twitterclone.models.Tweet;
+import com.epicodus.twitterclone.models.Reply;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 /**
  * Created by Guest on 10/27/15.
  */
-public class TweetAdapter extends BaseAdapter {
+public class ReplyAdapter extends BaseAdapter{
 
     private Context mContext;
-    private ArrayList<Tweet>mTweets;
+    private ArrayList<Reply>mReplies;
 
-    public TweetAdapter(Context context, ArrayList<Tweet> tweets) {
-        mTweets = tweets;
+    public ReplyAdapter(Context context, ArrayList<Reply> replies){
+        mReplies = replies;
         mContext = context;
     }
 
     @Override
     public int getCount() {
-        return mTweets.size();
+        return mReplies.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return mTweets.get(position);
+        return mReplies.get(position);
     }
 
     @Override
@@ -44,30 +46,33 @@ public class TweetAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.tweet_list_item, null);
+        if (convertView == null){
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.reply_list_item, null);
             holder = new ViewHolder();
             holder.nameLabel = (TextView) convertView.findViewById(R.id.replyNameText);
-            holder.dateLabel = (TextView)convertView.findViewById(R.id.replyDateText);
-            holder.tweetLabel = (TextView)convertView.findViewById(R.id.replyTweetText);
+            holder.dateLabel = (TextView) convertView.findViewById(R.id.replyDateText);
+            holder.replyLabel = (TextView) convertView.findViewById(R.id.replyTweetText);
 
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        Tweet tweet = mTweets.get(position);
 
-        holder.dateLabel.setText(tweet.getFormattedTime());
-        holder.nameLabel.setText("By: " + tweet.getUser().getName());
-        holder.tweetLabel.setText(tweet.getContent());
+    Reply reply = mReplies.get(position);
 
-        return convertView;
+    holder.dateLabel.setText(reply.getFormattedTime());
+    holder.nameLabel.setText("By: " + reply.getReplyUser());
+    holder.replyLabel.setText(reply.getReplyContent());
+
+    return convertView;
     }
 
-    private static class ViewHolder {
+    private static class ViewHolder{
         TextView nameLabel;
-        TextView tweetLabel;
+        TextView replyLabel;
         TextView dateLabel;
     }
 }
+
+
