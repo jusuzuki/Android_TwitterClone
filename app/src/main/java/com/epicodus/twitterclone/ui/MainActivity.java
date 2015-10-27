@@ -96,9 +96,10 @@ public class MainActivity extends ListActivity {
     @Override
     protected void  onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l,v, position, id);
-        String singleTweet = mTweets.get(position).toString();
+        Tweet singleTweet = mTweets.get(position);
+        String tweetContent = singleTweet.getContent();
         Intent intent = new Intent(this, TweetActivity.class);
-        intent.putExtra("tweetText", singleTweet);
+        intent.putExtra("tweetText", tweetContent);
         startActivity(intent);
     }
 

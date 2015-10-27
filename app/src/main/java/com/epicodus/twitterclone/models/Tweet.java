@@ -4,6 +4,7 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
+import com.epicodus.twitterclone.adapters.TweetAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -62,7 +63,7 @@ public class Tweet extends Model {
 
     public String getFormattedTime() {
         SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d 'at' h:mm");
-        formatter.setTimeZone(TimeZone.getTimeZone("PST"));
+        formatter.setTimeZone(TimeZone.getTimeZone("America/Los_Angeles"));
         return formatter.format(mCreatedAt);
     }
 
@@ -71,5 +72,12 @@ public class Tweet extends Model {
         return new Select()
                 .from(Tweet.class)
                 .execute();
+    }
+
+    public static Tweet find(String tweetText) {
+        return new Select()
+                .from(Tweet.class)
+                .where("Content = ?", tweetText)
+                .executeSingle();
     }
 }
