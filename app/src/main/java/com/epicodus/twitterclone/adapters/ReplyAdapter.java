@@ -62,7 +62,7 @@ public class ReplyAdapter extends BaseAdapter{
     Reply reply = mReplies.get(position);
 
     holder.dateLabel.setText(reply.getFormattedTime());
-    holder.nameLabel.setText("By: " + reply.getReplyUser());
+    holder.nameLabel.setText("By: " + reply.getReplyUser().getName());
     holder.replyLabel.setText(reply.getReplyContent());
 
     return convertView;

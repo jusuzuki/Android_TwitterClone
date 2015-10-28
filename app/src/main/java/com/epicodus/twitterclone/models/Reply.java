@@ -19,8 +19,8 @@ public class Reply extends Model {
     @Column(name = "replyContent")
     private String mReplyContent;
 
-    @Column(name = "replyUser")
-    private User mReplyUser;
+    @Column(name = "User")
+    private User mUser;
 
     @Column(name = "replyDate")
     private long mReplyDate;
@@ -35,7 +35,7 @@ public class Reply extends Model {
     public Reply(String replyContent, User replyUser, long tweetId) {
         super();
         mReplyContent = replyContent;
-        mReplyUser = replyUser;
+        mUser = replyUser;
         mReplyDate = new Date().getTime();
         mTweetId = tweetId;
     }
@@ -49,11 +49,11 @@ public class Reply extends Model {
     }
 
     public User getReplyUser() {
-        return mReplyUser;
+        return mUser;
     }
 
     public void setReplyUser(User replyUser) {
-        mReplyUser = replyUser;
+        mUser = replyUser;
     }
 
     public long getReplyDate() {
@@ -84,4 +84,6 @@ public class Reply extends Model {
                 .from(Reply.class)
                 .execute();
     }
+
+
 }
