@@ -3,7 +3,6 @@ package com.epicodus.twitterclone.ui;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -58,7 +57,7 @@ public class TweetActivity extends ListActivity {
 
 
 
-        mReplies = (ArrayList) Reply.all();
+        mReplies = (ArrayList) Reply.repliesToTweet(mTweet.getId());
         mReplyAdapter = new ReplyAdapter(this, mReplies);
         setListAdapter(mReplyAdapter);
 

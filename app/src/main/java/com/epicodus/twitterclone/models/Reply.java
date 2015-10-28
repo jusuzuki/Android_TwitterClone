@@ -85,5 +85,12 @@ public class Reply extends Model {
                 .execute();
     }
 
+    public static List<Reply> repliesToTweet(long tweetId){
+        return new Select()
+                .from(Reply.class)
+                .where("tweetId = ?", tweetId)
+                .execute();
+    }
+
 
 }
