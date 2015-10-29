@@ -22,4 +22,8 @@ public class TagTweet extends Model {
         mTweet = tweet;
         mTag = tag;
     }
+
+    public TagTweet() {
+        super();
+    }
 }

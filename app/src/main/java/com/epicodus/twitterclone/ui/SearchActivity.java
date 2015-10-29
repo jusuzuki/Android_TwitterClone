@@ -47,9 +47,13 @@ public class SearchActivity extends ListActivity {
 
                 mTweets.clear();
 
-                List<Tweet> tweetsToAdd = hashtag.getTweets();
-                for (Tweet tweet : tweetsToAdd) {
-                    mTweets.add(tweet);
+                if (hashtag == null) {
+                    // do something to tell the user that no results were found
+                } else {
+                    List<Tweet> tweetsToAdd = hashtag.getTweets();
+                    for (Tweet tweet : tweetsToAdd) {
+                        mTweets.add(tweet);
+                    }
                 }
                 mAdapter.notifyDataSetChanged();
             }
