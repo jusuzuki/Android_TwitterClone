@@ -80,4 +80,16 @@ public class Tweet extends Model {
                 .where("Content = ?", tweetText)
                 .executeSingle();
     }
+
+    public void parseHashTags() {
+        String[] words = mContent.split("\\s+");
+
+        for (String word : words) {
+            if (word.startsWith("#")) {
+                Tag tag = Tag.newTag(word);
+                TagTweet tagTweet = new TagTweet(tag, this);
+                tagTweet.save();
+            }
+        }
+    }
 }
